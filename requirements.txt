@@ -1,0 +1,2 @@
+# No external dependencies are required.
+# The calculator is written with the Python standard library only (Python >= 3.8).
