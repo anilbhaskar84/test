@@ -268,17 +268,17 @@ class TestCli(unittest.TestCase):
         )
 
     def test_single_expression(self):
-        completed = self._run_cli("2 + 2 * 3")
+        completed = self._run_cli("", "2 + 2 * 3")
         self.assertEqual(completed.returncode, 0, completed.stderr)
         self.assertEqual(completed.stdout.strip(), "8")
 
     def test_single_expression_error(self):
-        completed = self._run_cli("1 / 0")
+        completed = self._run_cli("", "1 / 0")
         self.assertEqual(completed.returncode, 1)
         self.assertIn("Error:", completed.stderr)
 
     def test_version_flag(self):
-        completed = self._run_cli("--version")
+        completed = self._run_cli("", "--version")
         self.assertEqual(completed.returncode, 0)
         self.assertIn("calculator", completed.stdout)
 
